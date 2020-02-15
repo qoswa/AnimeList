@@ -22,7 +22,6 @@ class CompositionRoot {
         return jikanApi!!
     }
 
-
     fun getJikanRetrofitClient(): Retrofit {
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
