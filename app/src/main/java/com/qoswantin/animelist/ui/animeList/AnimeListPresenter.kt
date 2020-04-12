@@ -30,7 +30,7 @@ class AnimeListPresenter(
 
 
     override fun onAnimeClicked(animeId: Int) {
-        fragmentNavigator.openAnimeDetailsFragment
+        fragmentNavigator.openAnimeDetailsFragment(animeId)
     }
 
 }
