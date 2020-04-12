@@ -1,7 +1,7 @@
 package com.qoswantin.animelist.networking
 
-import com.qoswantin.animelist.animeList.model.AnimeScheme
-import com.qoswantin.animelist.animeList.model.TopAnimeListScheme
+import com.qoswantin.animelist.ui.animeList.model.AnimeScheme
+import com.qoswantin.animelist.ui.animeList.model.TopAnimeListScheme
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

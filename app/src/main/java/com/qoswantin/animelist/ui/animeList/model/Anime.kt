@@ -1,6 +1,4 @@
-package com.qoswantin.animelist.animeList.model
-
-import com.google.gson.annotations.SerializedName
+package com.qoswantin.animelist.ui.animeList.model
 
 data class Anime(
     val id: Int,

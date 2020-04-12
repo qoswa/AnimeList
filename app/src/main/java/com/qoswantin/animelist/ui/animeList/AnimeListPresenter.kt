@@ -1,4 +1,4 @@
-package com.qoswantin.animelist.animeList
+package com.qoswantin.animelist.ui.animeList
 
 import com.qoswantin.animelist.common.utils.mvp.BasePresenter
 

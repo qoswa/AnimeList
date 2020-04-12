@@ -1,4 +1,4 @@
-package com.qoswantin.animelist.animeList.model
+package com.qoswantin.animelist.ui.animeList.model
 
 import com.google.gson.annotations.SerializedName
 
