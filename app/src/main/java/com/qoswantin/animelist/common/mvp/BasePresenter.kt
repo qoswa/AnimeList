@@ -4,7 +4,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 abstract class BasePresenter<T : MvpView> : MvpPresenter<T> {
 
-    private var view: T? = null
+    var view: T? = null
 
     val compositeDisposable = CompositeDisposable()
 
@@ -16,5 +16,7 @@ abstract class BasePresenter<T : MvpView> : MvpPresenter<T> {
         view = null
         compositeDisposable.dispose()
     }
+
+
 
 }

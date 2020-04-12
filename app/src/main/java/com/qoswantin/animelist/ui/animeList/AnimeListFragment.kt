@@ -17,7 +17,7 @@ import javax.inject.Inject
 class AnimeListFragment : BaseFragment(), AnimeListContract.View {
 
     @Inject
-    lateinit var jikanApi: JikanApi
+    lateinit var presenter: AnimeListContract.Presenter
 
     override fun onAttach(context: Context) {
         controllerComponent.inject(this)
@@ -32,6 +32,8 @@ class AnimeListFragment : BaseFragment(), AnimeListContract.View {
         // Inflate the layout for this fragment
         return viewRoot
     }
+
+
 
     override fun showAnimeList(animeList: List<Anime>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

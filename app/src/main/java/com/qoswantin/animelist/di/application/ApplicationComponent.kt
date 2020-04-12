@@ -7,7 +7,11 @@ import dagger.BindsInstance
 import dagger.Component
 
 @ApplicationScope
-@Component(modules = [ApplicationModule::class, NetworkModule::class])
+@Component(modules = [
+    ApplicationModule::class,
+    NetworkModule::class,
+    AnimeModule::class
+])
 interface ApplicationComponent {
 
     fun newActivityComponent(

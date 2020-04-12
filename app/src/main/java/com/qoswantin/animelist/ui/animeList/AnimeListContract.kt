@@ -8,15 +8,11 @@ interface AnimeListContract {
 
 
     interface View: MvpView {
-
         fun showAnimeList(animeList: List<Anime>)
-
     }
 
-    interface Presenter: MvpPresenter<View>{
-
+    interface Presenter: MvpPresenter<View> {
         fun onAnimeClicked(animeId: Int)
-
     }
 
 }

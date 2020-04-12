@@ -4,6 +4,7 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import com.qoswantin.animelist.ui.animeDetails.AnimeDetailsFragment
 import com.qoswantin.animelist.ui.animeList.AnimeListFragment
 
 class FragmentNavigator (
@@ -31,8 +32,10 @@ class FragmentNavigator (
             activity.finish()
     }
 
-    fun openAnimeDetailsFragment() {
-//        pushFragment(AnimeDetailsFragment.newInstance())
+    fun openAnimeDetailsFragment(animeId: Int) {
+        pushFragment(
+            AnimeDetailsFragment.newInstance(animeId)
+        )
     }
 
     private fun pushFragment(fragment: Fragment) {
