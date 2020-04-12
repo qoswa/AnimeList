@@ -1,8 +1,8 @@
 package com.qoswantin.animelist.ui.animeList
 
 import com.qoswantin.animelist.ui.animeList.model.Anime
-import com.qoswantin.animelist.common.utils.mvp.MvpPresenter
-import com.qoswantin.animelist.common.utils.mvp.MvpView
+import com.qoswantin.animelist.common.mvp.MvpPresenter
+import com.qoswantin.animelist.common.mvp.MvpView
 
 interface AnimeListContract {
 

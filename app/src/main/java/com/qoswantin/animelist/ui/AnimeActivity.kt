@@ -9,14 +9,23 @@ import javax.inject.Inject
 class AnimeActivity : BaseActivity() {
 
     @Inject
-    lateinit var okHttpClient: OkHttpClient
+    lateinit var fragmentNavigator: FragmentNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         controllerComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if (savedInstanceState == null)
+            fragmentNavigator.initWithAnimeListFragment(R.id.fragment_container_view)
+        else {
+            // Restore state
+        }
 
+    }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        fragmentNavigator.onBackPressed()
     }
 
 }

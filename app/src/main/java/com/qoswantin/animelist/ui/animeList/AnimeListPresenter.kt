@@ -1,6 +1,6 @@
 package com.qoswantin.animelist.ui.animeList
 
-import com.qoswantin.animelist.common.utils.mvp.BasePresenter
+import com.qoswantin.animelist.common.mvp.BasePresenter
 
 class AnimeListPresenter : BasePresenter<AnimeListContract.View>(), AnimeListContract.Presenter {
 

@@ -1,4 +1,4 @@
-package com.qoswantin.animelist.common.utils.mvp
+package com.qoswantin.animelist.common.mvp
 
 interface MvpPresenter<V : MvpView> {
 
