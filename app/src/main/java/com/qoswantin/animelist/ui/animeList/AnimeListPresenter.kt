@@ -16,12 +16,8 @@ class AnimeListPresenter(
 ) : BasePresenter<AnimeListContract.View>(), AnimeListContract.Presenter,
     OnAnimeItemClicked {
 
-    override fun attachView(mvpView: AnimeListContract.View) {
-        super.attachView(mvpView)
-        animeAdapter.setAnimeItemClickListener(this)
-    }
-
     override fun onCreateView(savedListPosition: Int?) {
+        animeAdapter.setAnimeItemClickListener(this)
         // Decide if we really want to download data .
         // We don`t want to start rxChain with isEmpty() because
         // it will trigger doOnSubscribe() which will show progress bar
