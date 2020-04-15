@@ -1,13 +1,12 @@
 package com.qoswantin.animelist.di.controller
 
 import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
 import com.qoswantin.animelist.dataSource.AnimeRepository
 import com.qoswantin.animelist.di.application.ApplicationModule.Companion.APPLICATION_CONTEXT
 import com.qoswantin.animelist.ui.FragmentNavigator
 import com.qoswantin.animelist.ui.animeList.AnimeListContract
 import com.qoswantin.animelist.ui.animeList.AnimeListPresenter
-import com.qoswantin.animelist.ui.animeList.adapter.AnimeAdapter
+import com.qoswantin.animelist.ui.animeList.AnimeAdapter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

@@ -14,7 +14,7 @@ abstract class BasePresenter<T : MvpView> : MvpPresenter<T> {
 
     override fun detachView() {
         view = null
-        compositeDisposable.dispose()
+        compositeDisposable.clear()
     }
 
 

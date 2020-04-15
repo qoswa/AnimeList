@@ -3,6 +3,8 @@ package com.qoswantin.animelist.dataSource
 import com.qoswantin.animelist.networking.JikanApi
 import com.qoswantin.animelist.ui.animeList.model.Anime
 import com.qoswantin.animelist.ui.animeList.model.AnimeScheme
+import com.qoswantin.animelist.ui.animeReview.model.Review
+import com.qoswantin.animelist.ui.animeReview.model.ReviewScheme
 import io.reactivex.Observable
 import io.reactivex.Single
 
@@ -21,9 +23,12 @@ class AnimeRepository(
             }.toList()
     }
 
-    fun getAnimeById(id: Int): Single<Anime> {
-        return jikanApi.getAnime(id)
-            .map { it.toModel() }
+    fun getReviewsByAnimeId(id: Int): Single<Review> {
+        return jikanApi.getReviewsByAnimeId(id)
+            .map { it.reviews }
+            .map {
+                it.first().toModel()
+            }
     }
 
 }
@@ -34,5 +39,11 @@ fun AnimeScheme.toModel(): Anime {
         title,
         score,
         imageUrl
+    )
+}
+
+fun ReviewScheme.toModel(): Review {
+    return Review(
+        content
     )
 }

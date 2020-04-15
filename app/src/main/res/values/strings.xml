@@ -3,4 +3,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="anime_list_empty_stub">Sorry, there is no anime :(</string>
+    <string name="anime_list_error_stub">Sorry, something went wrong :(</string>
 </resources>

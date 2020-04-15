@@ -4,7 +4,7 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import com.qoswantin.animelist.ui.animeDetails.AnimeDetailsFragment
+import com.qoswantin.animelist.ui.animeReview.AnimeReviewFragment
 import com.qoswantin.animelist.ui.animeList.AnimeListFragment
 
 class FragmentNavigator (
@@ -26,15 +26,16 @@ class FragmentNavigator (
     }
 
     fun onBackPressed() {
-        if (fragmentManager.backStackEntryCount > 0)
-            fragmentManager.popBackStack()
-        else
+        if (fragmentManager.backStackEntryCount == 1) {
             activity.finish()
+        } else {
+            fragmentManager.popBackStack()
+        }
     }
 
     fun openAnimeDetailsFragment(animeId: Int) {
         pushFragment(
-            AnimeDetailsFragment.newInstance(animeId)
+            AnimeReviewFragment.newInstance(animeId)
         )
     }
 
@@ -52,5 +53,7 @@ class FragmentNavigator (
             "You must initFragmentNavigator with containerId first."
         }
     }
+
+
 
 }
