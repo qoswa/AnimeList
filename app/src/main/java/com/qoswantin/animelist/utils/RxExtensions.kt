@@ -1,4 +1,4 @@
-package com.qoswantin.animelist.common.utils
+package com.qoswantin.animelist.utils
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

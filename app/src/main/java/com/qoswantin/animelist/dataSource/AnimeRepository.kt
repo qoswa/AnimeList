@@ -1,11 +1,9 @@
 package com.qoswantin.animelist.dataSource
 
-import com.qoswantin.animelist.networking.JikanApi
 import com.qoswantin.animelist.ui.animeList.model.Anime
 import com.qoswantin.animelist.ui.animeList.model.AnimeScheme
 import com.qoswantin.animelist.ui.animeReview.model.Review
 import com.qoswantin.animelist.ui.animeReview.model.ReviewScheme
-import io.reactivex.Observable
 import io.reactivex.Single
 
 class AnimeRepository(

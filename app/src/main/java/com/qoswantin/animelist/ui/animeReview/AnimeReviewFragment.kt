@@ -28,6 +28,11 @@ class AnimeReviewFragment : BaseFragment(), AnimeReviewContract.View {
         controllerComponent.inject(this)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter.attachView(this)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +44,6 @@ class AnimeReviewFragment : BaseFragment(), AnimeReviewContract.View {
             progressBar = findViewById(R.id.review_progress_bar)
         }
 
-        presenter.attachView(this)
         presenter.onCreateView(
             requireArguments().getInt(ARGUMENT_ANIME_ID)
         )

@@ -1,7 +1,7 @@
 package com.qoswantin.animelist.ui.animeReview
 
 import com.qoswantin.animelist.common.mvp.BasePresenter
-import com.qoswantin.animelist.common.utils.addTo
+import com.qoswantin.animelist.utils.addTo
 import com.qoswantin.animelist.dataSource.AnimeRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

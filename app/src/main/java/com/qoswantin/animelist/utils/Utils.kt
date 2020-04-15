@@ -1,6 +1,5 @@
-package com.qoswantin.animelist.common.utils
+package com.qoswantin.animelist.utils
 
-import android.util.Log
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 

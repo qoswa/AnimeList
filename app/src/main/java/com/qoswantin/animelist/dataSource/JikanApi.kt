@@ -1,4 +1,4 @@
-package com.qoswantin.animelist.networking
+package com.qoswantin.animelist.dataSource
 
 import com.qoswantin.animelist.ui.animeList.model.Anime
 import com.qoswantin.animelist.ui.animeList.model.AnimeScheme

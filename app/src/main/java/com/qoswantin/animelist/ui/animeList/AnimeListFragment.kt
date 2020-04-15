@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.qoswantin.animelist.R
 import com.qoswantin.animelist.common.baseComponents.BaseFragment
-import com.qoswantin.animelist.common.utils.smoothSnapToPosition
+import com.qoswantin.animelist.utils.smoothSnapToPosition
 import javax.inject.Inject
 
 class AnimeListFragment : BaseFragment(), AnimeListContract.View {

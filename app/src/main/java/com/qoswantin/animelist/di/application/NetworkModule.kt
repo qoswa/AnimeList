@@ -1,7 +1,7 @@
 package com.qoswantin.animelist.di.application
 
 import com.qoswantin.animelist.common.JIKAN_BASE_URL
-import com.qoswantin.animelist.networking.JikanApi
+import com.qoswantin.animelist.dataSource.JikanApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -57,6 +57,5 @@ class NetworkModule {
     companion object {
         const val JIKAN_RETROFIT_CLIENT = "JIKAN_RETROFIT_CLIENT"
     }
-
 
 }

@@ -1,7 +1,7 @@
 package com.qoswantin.animelist.ui.animeList
 
 import com.qoswantin.animelist.common.mvp.BasePresenter
-import com.qoswantin.animelist.common.utils.addTo
+import com.qoswantin.animelist.utils.addTo
 import com.qoswantin.animelist.dataSource.AnimeRepository
 import com.qoswantin.animelist.ui.FragmentNavigator
 import com.qoswantin.animelist.ui.animeList.model.Anime
