@@ -18,11 +18,8 @@ class FragmentNavigator (
     @IdRes
     private var containerIdRes: Int = 0
 
-    fun initWithAnimeListFragment(
-        @IdRes container: Int
-    ) {
+    fun setContainer(@IdRes container: Int) {
         containerIdRes = container
-        pushFragment(AnimeListFragment.newInstance())
     }
 
     fun onBackPressed() {
@@ -31,6 +28,10 @@ class FragmentNavigator (
         } else {
             fragmentManager.popBackStack()
         }
+    }
+
+    fun openAnimeListFragment() {
+        pushFragment(AnimeListFragment.newInstance())
     }
 
     fun openAnimeDetailsFragment(animeId: Int) {
@@ -53,7 +54,5 @@ class FragmentNavigator (
             "You must initFragmentNavigator with containerId first."
         }
     }
-
-
 
 }

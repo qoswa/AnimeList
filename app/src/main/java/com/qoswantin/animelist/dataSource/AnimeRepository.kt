@@ -17,17 +17,16 @@ class AnimeRepository(
             .map { topAnimeListScheme ->
                 topAnimeListScheme.animeList
             }
-            .flatMapObservable { Observable.fromIterable(it) }
-            .map { animeScheme ->
-                animeScheme.toModel()
-            }.toList()
+            .map { animeSchemeList ->
+                animeSchemeList.map { it.toModel() }
+            }
     }
 
-    fun getReviewsByAnimeId(id: Int): Single<Review> {
+    fun getReviewsByAnimeId(id: Int): Single<List<Review>> {
         return jikanApi.getReviewsByAnimeId(id)
             .map { it.reviews }
-            .map {
-                it.first().toModel()
+            .map { list ->
+                list.map { it.toModel() }
             }
     }
 

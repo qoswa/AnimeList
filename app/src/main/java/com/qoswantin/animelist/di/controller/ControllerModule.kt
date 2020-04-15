@@ -7,6 +7,8 @@ import com.qoswantin.animelist.ui.FragmentNavigator
 import com.qoswantin.animelist.ui.animeList.AnimeListContract
 import com.qoswantin.animelist.ui.animeList.AnimeListPresenter
 import com.qoswantin.animelist.ui.animeList.AnimeAdapter
+import com.qoswantin.animelist.ui.animeReview.AnimeReviewContract
+import com.qoswantin.animelist.ui.animeReview.AnimeReviewPresenter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -27,6 +29,13 @@ class ControllerModule {
         )
     }
 
+    @Provides
+    fun provideAnimeReviewPresenter(
+        animeRepository: AnimeRepository
+    ): AnimeReviewContract.Presenter {
+        return AnimeReviewPresenter(animeRepository)
+    }
+
     @ControllerScope
     @Provides
     fun provideAnimeAdapter(
@@ -37,7 +46,4 @@ class ControllerModule {
         )
     }
 
-    companion object {
-        const val ANIME_ADAPTER = "ANIME_ADAPTER"
-    }
 }

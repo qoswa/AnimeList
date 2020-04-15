@@ -1,21 +1,71 @@
 package com.qoswantin.animelist.ui.animeReview
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
 
 import com.qoswantin.animelist.R
 import com.qoswantin.animelist.common.baseComponents.BaseFragment
+import javax.inject.Inject
 
-class AnimeReviewFragment : BaseFragment() {
+class AnimeReviewFragment : BaseFragment(), AnimeReviewContract.View {
+
+    @Inject
+    lateinit var presenter: AnimeReviewContract.Presenter
+
+    lateinit var errorStub: TextView
+    lateinit var reviewTextView: TextView
+    lateinit var progressBar: ProgressBar
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        controllerComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_anime_review, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_anime_review, container, false)
+        rootView.run {
+            errorStub = findViewById(R.id.review_error_stub)
+            reviewTextView = findViewById(R.id.review_text_view)
+            progressBar = findViewById(R.id.review_progress_bar)
+        }
+
+        presenter.attachView(this)
+        presenter.onCreateView(
+            requireArguments().getInt(ARGUMENT_ANIME_ID)
+        )
+
+        return rootView
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        presenter.detachView()
+    }
+
+    override fun showAnimeReview(animeReview: String) {
+        reviewTextView.text = animeReview
+    }
+
+    override fun showProgress() {
+        progressBar.visibility = VISIBLE
+    }
+
+    override fun hideProgress() {
+        progressBar.visibility = GONE
+    }
+
+    override fun showError() {
+        errorStub.visibility = VISIBLE
     }
 
     companion object {
@@ -30,6 +80,7 @@ class AnimeReviewFragment : BaseFragment() {
         }
 
         const val ARGUMENT_ANIME_ID = "ARGUMENT_ANIME_ID"
+
     }
 
 }

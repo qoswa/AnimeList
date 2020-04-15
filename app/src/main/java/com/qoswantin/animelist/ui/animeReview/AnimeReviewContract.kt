@@ -7,9 +7,19 @@ interface AnimeReviewContract {
 
     interface View: MvpView {
 
+        fun showAnimeReview(anime: String)
+
+        fun showProgress()
+
+        fun hideProgress()
+
+        fun showError()
+
     }
 
     interface Presenter: MvpPresenter<View> {
+
+        fun onCreateView(animeId: Int)
 
     }
 

@@ -16,10 +16,9 @@ class AnimeActivity : BaseActivity() {
         controllerComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        fragmentNavigator.setContainer(R.id.fragment_container_view)
         if (savedInstanceState == null) {
-            fragmentNavigator.initWithAnimeListFragment(R.id.fragment_container_view)
-        } else {
-            // Restore state
+            fragmentNavigator.openAnimeListFragment()
         }
 
     }

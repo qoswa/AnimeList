@@ -27,20 +27,28 @@ class AnimeListFragment : BaseFragment(), AnimeListContract.View {
     lateinit var animeAdapter: AnimeAdapter
 
     lateinit var animeListRecyclerView: RecyclerView
-    lateinit var animeListLayoutManager: LinearLayoutManager
+    var animeListLayoutManager: LinearLayoutManager? = null
     lateinit var animeListEmptyStub: TextView
     lateinit var animeListErrorStub: TextView
     lateinit var animeListProgressBar: ProgressBar
+
+    private var savedPosition: Int = 0
 
     override fun onAttach(context: Context) {
         controllerComponent.inject(this)
         super.onAttach(context)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        savedPosition = savedInstanceState?.getInt(ANIME_LIST_POSITION_RESTORE_KEY) ?: 0
+        presenter.attachView(this)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val viewRoot = inflater.inflate(R.layout.fragment_anime_list, container, false)
         viewRoot.run {
             animeListRecyclerView = findViewById(R.id.anime_recycler_view)
@@ -52,10 +60,7 @@ class AnimeListFragment : BaseFragment(), AnimeListContract.View {
             animeListRecyclerView.adapter = animeAdapter
         }
 
-        presenter.attachView(this)
-        presenter.onCreateView(
-            savedInstanceState?.getInt(ANIME_LIST_POSITION_RESTORE_KEY)
-        )
+        presenter.onCreateView(savedPosition)
         return viewRoot
     }
 
@@ -89,10 +94,19 @@ class AnimeListFragment : BaseFragment(), AnimeListContract.View {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         // Do not save list cause it may be too heavy.
-        outState.putInt(
-            ANIME_LIST_POSITION_RESTORE_KEY,
-            animeListLayoutManager.findFirstCompletelyVisibleItemPosition()
-        )
+        if (animeListLayoutManager != null) {
+            outState.putInt(
+                ANIME_LIST_POSITION_RESTORE_KEY,
+                animeListLayoutManager!!.findFirstCompletelyVisibleItemPosition()
+            )
+        } else {
+            // This is the case then fragment in backstack
+            // and it is restored for second time, so layoutManager is not initalized.
+            outState.putInt(
+                ANIME_LIST_POSITION_RESTORE_KEY,
+                savedPosition
+            )
+        }
     }
 
     companion object {
